@@ -5,6 +5,7 @@
 ## Preprocessing of the data
 
 - To get more logical outputs and since the training of one book only took 30s to 1 minute, we decided to concatenate multiple classical books and use those as the dataset.
+- We utilized the already set moses-tokenizer, since that one yielded good results in task 1.
 - After preprocessing, training and generating a sample, we realized that the special token `<unk>` was being used too much and thus we created the script `mt-exercise-02/scripts/remove_word.py` that removes the word 'CHAPTER' and the roman numerals after it to ensure that a less frequent but more informative word considered in the vocabulary for training. This file is included in the `download_data.sh` and thereby doesn't need to be run separately.
 - To also consider more data from the dataset, we scaled the the train, validation and test set according to the size of the input data set (see `download_data.sh`).
 - Otherwise, we left the paths as is and one should be able to just run: `./scripts/download_data.sh`
